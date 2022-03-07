@@ -1,4 +1,6 @@
 
+import 'dart:collection';
+
 class position {
   position(this.boatOnWestBank, this.eastCannibals, this.eastMissionaries, this.westCannibals, this.westMissionaries);
 
@@ -56,7 +58,7 @@ List<position> moves(position pos) {
   moves[4].eastCannibals += 1 * direction;
   moves[4].eastMissionaries += 1 * direction;
 
-  List<position> validMoves = new List.empty();
+  List<position> validMoves = [];
 
   moves.forEach((element) {
       if(valid(element)) {
@@ -67,9 +69,33 @@ List<position> moves(position pos) {
   return validMoves;
 }
 
-void dfs(position start, position goal, List<position> solution, Map[positionbool visited) {
-  sucessors
+List<position> dfs(position start, position goal, List<position> solution, HashSet<position> Visited) {
+    var sucessors = moves(start);
+    if (sucessors.length == 0){
+      
+    }
+    sucessors.forEach((element) {
+      if(Visited.contains(element)) {
+        
+      }
+      Visited.add(true);
+      List<position> newSolution = [];
+      newSolution.add(element);
+      if(element == goal) {
+        return newSolution;
+      }
+      var next = dfs(element, goal, newSolution, Visited);
+      if(next.length == 0) {
+        continue;
+      }
+      return next;
+    });
+    return solution;
 }
 void main() {
-  position start = position
+
+  position start = new position(boatOnWestBank = true, eastCannibals = 3, eastMissionaries = 3, westCannibals = 0, westMissionaries = 0);
+  position goal = new position(boatOnWestBank = false, eastCannibals = 0, eastMissionaries = 0, westCannibals = 3, westMissionaries = 3);
+  var solution = dfs(start, goal, List<position> start, HashSet<position> Visited);
+  print(solution);
 }
