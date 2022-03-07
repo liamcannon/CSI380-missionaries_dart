@@ -1,1 +1,2 @@
-# CSI-380 Cannibals and Missionaries problem solved in dart
+# CSI-380 
+Cannibals and Missionaries problem solved in dart
