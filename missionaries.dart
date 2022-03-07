@@ -36,13 +36,8 @@ List<position> moves(position pos) {
   if(!pos.boatOnWestBank) {
     direction = -1;
   }
-  final position pos1 = position.clone(pos);
-  final position pos2 = position.clone(pos);
-  final position pos3 = position.clone(pos);
-  final position pos4 = position.clone(pos);
-  final position pos5 = position.clone(pos);
 
-  List<position> moves = [pos1 , pos2, pos3, pos4, pos5];
+  List<position> moves = [position.clone(pos), position.clone(pos), position.clone(pos), position.clone(pos), position.clone(pos)];
 
   moves[0].westMissionaries -= 2 * direction;
   moves[0].eastMissionaries += 2 * direction;
